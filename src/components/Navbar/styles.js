@@ -8,7 +8,6 @@ export default makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-   
     alignItems: 'center',
     padding: '10px 30px 10px 30px'
   },
