@@ -30,16 +30,16 @@ const dispatch = useDispatch()
        </div>
        <CardContent>
        <Typography className={classes.title} variant='h5' gutterBottom>{post.title}</Typography>
-          <Typography className={classes.title} variant='subtitle2' gutterBottom>{post.message}</Typography>
+          <Typography className={classes.title} color='secondary' variant='subtitle2' gutterBottom>{post.message}</Typography>
        </CardContent>
        <CardActions className={classes.cardActions}>
         <Button size='small' color='primary' onClick={() => dispatch(likePost(post._id))}>
           <ThumbUpAltIcon fontSize='small'/>
-          Like {post.likeCount}
+          &nbsp; Like &nbsp; {post.likeCount}
         </Button>
         <Button size='small' color='primary' onClick={() => dispatch(deletePost(post._id))}>
           <DeleteIcon fontSize='small'/>
-           Delete
+          &nbsp; Delete &nbsp;
         </Button>
              
        </CardActions>
