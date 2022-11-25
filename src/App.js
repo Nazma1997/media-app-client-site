@@ -1,12 +1,13 @@
 import {React, useState,useEffect} from 'react';
 // import axios from 'axios';
-import {Container, AppBar, Typography, Grow, Grid} from '@material-ui/core';
+import {Container,  Grow, Grid} from '@material-ui/core';
 import {useDispatch} from 'react-redux';
-import memories from '../src/images/memories.png'
+
 import Posts from './components/Posts/Posts';
 import {getPosts} from './actions/posts.js';
 import Form from './components/Form/Form';
 import useStyles from './styles';
+import Navbar from './components/Navbar/Navbar';
 
 
 const App = () => {
@@ -22,10 +23,7 @@ console.log(currentId)
  
   return (
       <Container maxWidth= 'lg'>
-        <AppBar position="static" color='inherit' className={classes.appBar}>
-          <Typography className={classes.heading} variant='h2' align='center'>Memories</Typography>
-          <img className={classes.image} src={memories} alt='memories' height="60"/>
-        </AppBar>
+       <Navbar />
         <Grow in>
           <Container>
             <Grid className={classes.mainContainer} container justifyContent='space-between' alignItems='stretch' spacing={3}>
