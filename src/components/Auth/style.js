@@ -3,11 +3,13 @@ import {makeStyles} from '@material-ui/core/styles';
 export default makeStyles((theme) => ({
   paper:{
     marginTop: theme.spacing(8),
-    display: 'flex',
+    // display: 'flex',
     flexDirection: 'colum',
     alignItems: 'center',
+    // justifyContent: 'center',
     padding: theme.spacing(2),
   },
+  
   root: {
     '& .MuiTextField-root':{
       margin: theme.spacing(1),
@@ -16,6 +18,7 @@ export default makeStyles((theme) => ({
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
+    // alignItems: 'center'
   },
   form: {
     width: '100%',
