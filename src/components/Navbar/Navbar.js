@@ -1,6 +1,7 @@
 import React from 'react'
 import { AppBar, Avatar, Button, Toolbar, Typography} from '@material-ui/core';
 import {Link} from 'react-router-dom';
+
 import memories from '../../images/memories.png'
 import useStyles from './styles';
 
@@ -15,6 +16,8 @@ const Navbar = () => {
          <Typography component={Link} to='/' className={classes.heading} variant='h3' >Memories</Typography>
           <img className={classes.image} src={memories} alt='memories' height="60"/>
          </div>
+
+         
 
          <Toolbar className={classes.toolbar}>
            { 
@@ -31,7 +34,11 @@ const Navbar = () => {
                  </div>
              )
            }
+
+
+         
          </Toolbar>
+         
     </AppBar>
   )
 }

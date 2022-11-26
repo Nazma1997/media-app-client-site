@@ -1,15 +1,20 @@
 import React, {useState}from 'react';
 import{Avatar, Button, Paper, Grid, Typography, Container} from '@material-ui/core';
+import { GoogleLogin, googleLogout } from '@react-oauth/google';
 import LockOutlineIcon from '@material-ui/icons/LockOpenOutlined';
+import {useDispatch} from 'react-redux';
 import useStyles from './style';
 import Input from './Input';
+
 
 
 const Auth = () => {
   const classes = useStyles();
   const [showPassword, setShowPassword] = useState(false);
-
-  const isSignup = true;
+  const [isSignup, setIsSignup] = useState(false)
+  const dispatch = useDispatch()
+  // const isSignup = true;
+  const user = false;
 
   const handleSubmit = () => {
 
@@ -19,7 +24,23 @@ const Auth = () => {
 
   }
 
-  const handleShowPassword = ()  => setShowPassword((prevShowPassword) => !prevShowPassword)
+  const handleShowPassword = ()  => setShowPassword((prevShowPassword) => !prevShowPassword);
+
+  const switchMode = () => {
+    setIsSignup((prevIsSignup) => !prevIsSignup);
+    handleShowPassword(false)
+  }
+
+  const googleSuccess = async(res) => {
+   
+  }
+
+
+  const googleFailure = () => {
+
+  }
+
+  
 
   return(
     <Container component='main' maxWidth='xs'>
@@ -47,6 +68,34 @@ const Auth = () => {
           <Button type='submit' fullWidth variant='contained' color='primary' className={classes.submit}>
             {isSignup ? 'Sign Up' : 'Sign In'}
           </Button>
+           
+          {
+            user ? (
+              <div>Logged In</div>
+            ) : (
+              <GoogleLogin 
+               
+              onSuccess={credentialResponse => {
+                console.log(credentialResponse);
+              }}
+              onError={() => {
+                console.log('Login Failed');
+              }}
+              />
+            )
+           }
+          
+
+          <Grid container justifyContent='flex-end'>
+            <Grid item>
+              <Button onClick={switchMode}>
+                {isSignup ? 'Already have an account? Sign In' : "Don't have an account? Sign Up"}
+
+              </Button>
+
+            </Grid>
+
+          </Grid>
          </form>
          
       </Paper>
